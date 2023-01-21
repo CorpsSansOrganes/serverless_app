@@ -1,3 +1,14 @@
+''' 
+Description:
+Serverless app recieving /sleep_and_sum http requests and responding with their sum.
+Each request is carried out by a seprate process. 
+In addition supports two monitoring requests: /active_processes display the pids of all current workers,
+and /request_counter display the total amout of sleep_and_sum requests completed.
+
+Author:
+Eden Kellner, 21.01.2023
+'''
+
 from time import sleep
 from flask import Flask
 from multiprocessing import Queue, Process, Value, active_children, Semaphore, Pipe
@@ -10,11 +21,7 @@ data_sem = Semaphore(0)
     
 @app.route('/sleep_and_sum/<int:x>+<int:y>', methods=['GET'])
 def dispatcher(x: int, y: int):
-    '''Dispatching sleep_and_sum tasks to worker processes.
-
-    Args: x, y - two integers
-    Returns: The sum of x+y as an HTTP response.
-    '''
+    '''Dispatching sleep_and_sum tasks to worker processes.'''
 
     # produce data to queue
     receive_conn, send_conn = Pipe(duplex=False)
