@@ -1,6 +1,6 @@
 ''' 
 Description:
-Serverless app recieving /sleep_and_sum http requests and responding with their sum.
+Serverless app recieving /sleep_and_sum http requests with two integers and responding with their sum.
 Each request is carried out by a seprate process. 
 In addition supports two monitoring requests: /active_processes display the pids of all current workers,
 and /request_counter display the total amout of sleep_and_sum requests completed.
