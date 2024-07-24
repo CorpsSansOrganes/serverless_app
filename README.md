@@ -1,5 +1,6 @@
 # Serverless App written in Python
-The following is a very simple serverless app.
+The following is a very simple serverless app, written in Python using Flask. It demonstrates handling http requests
+concurrently.
 
 ## What is a serverless application?
 Serverless applications are web applications running in a cloud environment, where the infrastructure is abstracted from the application,
